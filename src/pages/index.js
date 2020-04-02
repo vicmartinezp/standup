@@ -1,5 +1,4 @@
 import fetch from "isomorphic-unfetch"
-import styled from "styled-components"
 import React, { useState, useRef, useEffect } from "react"
 
 import extraSlides from "../slides.yml"
@@ -73,9 +72,9 @@ const Page = ({ teams, posts }) => {
             )}
           </>
         ) : (
-          <NoDataWrapper className="card">
+          <div className="card">
             <h1>Pas de données !</h1>
-          </NoDataWrapper>
+          </div>
         )
       ) : (
         <>
@@ -94,12 +93,5 @@ export async function getServerSideProps({ req }) {
 
   return { props: { teams, posts } }
 }
-
-const NoDataWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
 
 export default Page

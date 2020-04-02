@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import React, { useState, useEffect, useRef } from "react"
 
 const useInterval = (callback, delay) => {
@@ -35,7 +34,7 @@ const Counter = ({ start }) => {
   }
 
   return (
-    <Wrapper
+    <div
       className={`counter${
         count > 120
           ? " blink"
@@ -49,37 +48,8 @@ const Counter = ({ start }) => {
       }`}
     >
       {format(count)}
-    </Wrapper>
+    </div>
   )
 }
-
-const Wrapper = styled.div`
-  font-size: 4rem;
-  margin: 0 2rem;
-  color: #c7c7c7;
-
-  &.blink {
-    animation: blinker 1s linear infinite;
-  }
-
-  &.blink,
-  &.overdue {
-    color: #b00;
-  }
-
-  &.warning {
-    color: #e8998b;
-  }
-
-  &.ontime {
-    color: inherit;
-  }
-
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
-`
 
 export default Counter
